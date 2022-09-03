@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="connect-src 'ws://10.0.0.224:8080';"
+        />
+        <title>Socket-test</title>
+    </head>
+    <body>
+        <script type="module">
+            import { Socket } from './index.js'
+            const UserSocket = new Socket('ws://10.0.0.224:4000/socket', {
+                params: { token: window.userToken },
+            })
+
+            window.addEventListener('load', () => {
+                UserSocket.connect()
+
+                const channel = UserSocket.channel('topic:subtopic', {})
+
+                channel
+                    .join()
+                    .receive('ok', (resp) => {
+                        console.log('Joined successfully', resp)
+                    })
+                    .receive('error', (resp) => {
+                        console.log('Unable to join', resp)
+                    })
+
+                let button = document.createElement('button')
+                button.innerText = 'Click Here'
+
+                button.addEventListener('click', () => {
+                    console.log('Event sent')
+                    channel
+                        .push('event', {
+                            name: 'coco',
+                            what: 'dog',
+                        })
+                        .receive('ok', (resp) => {
+                            console.log('eeeveeennj w', resp)
+                        })
+                })
+
+                document.body.appendChild(button)
+            })
+        </script>
+    </body>
+</html>

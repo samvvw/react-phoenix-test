@@ -1,4 +1,4 @@
-import { global, XHR_STATES } from './constants.js'
+import { global, XHR_STATES } from './constants'
 
 export default class Ajax {
     static request(

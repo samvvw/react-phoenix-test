@@ -1,8 +1,8 @@
-import { closure } from './utils.js'
-import { CHANNEL_EVENTS, CHANNEL_STATES } from './constants.js'
+import { closure } from './utils'
+import { CHANNEL_EVENTS, CHANNEL_STATES } from './constants'
 
-import Push from './push.js'
-import Timer from './timer.js'
+import Push from './push'
+import Timer from './timer'
 
 /**
  *

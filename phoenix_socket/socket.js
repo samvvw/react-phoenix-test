@@ -7,15 +7,15 @@ import {
     SOCKET_STATES,
     TRANSPORTS,
     WS_CLOSE_NORMAL,
-} from './constants.js'
+} from './constants'
 
-import { closure } from './utils.js'
+import { closure } from './utils'
 
-import Ajax from './ajax.js'
-import Channel from './channel.js'
-import LongPoll from './longpoll.js'
-import Serializer from './serializer.js'
-import Timer from './timer.js'
+import Ajax from './ajax'
+import Channel from './channel'
+import LongPoll from './longpoll'
+import Serializer from './serializer'
+import Timer from './timer'
 
 /** Initializes the Socket *
  *

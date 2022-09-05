@@ -1,5 +1,5 @@
 /* The default serializer for encoding and decoding messages */
-import { CHANNEL_EVENTS } from './constants.js'
+import { CHANNEL_EVENTS } from './constants'
 
 export default {
     HEADER_LENGTH: 1,
